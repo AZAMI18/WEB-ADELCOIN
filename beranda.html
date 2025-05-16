@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Beranda - ADEL COIN</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    .slide-up {
+      animation: slideUp 1.2s ease forwards;
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    @keyframes slideUp {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .bottom-navbar {
+      position: fixed;
+      bottom: 0;
+      width: 100%;
+      background-color: #222;
+      color: #fff;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 10px 20px;
+      font-size: 14px;
+      font-family: Arial, sans-serif;
+      box-shadow: 0 -2px 5px rgba(0,0,0,0.5);
+      user-select: none;
+    }
+
+    .bottom-navbar .social-links {
+      display: flex;
+      gap: 15px;
+    }
+
+    .bottom-navbar a {
+      color: #fff;
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .bottom-navbar img {
+      width: 20px;
+      height: 20px;
+    }
+  </style>
+</head>
+<body class="slide-up">
+  <div class="container">
+    <h1>Selamat datang kembali!</h1>
+    <p>Total poin kamu: <span id="poin">0</span></p>
+    <a href="quiz.html" class="start-button">Lanjut Jawab Quiz</a>
+
+    <div class="artikel">
+      <h2>Tentang Adel</h2>
+      <p>Adel adalah ex-member JKT48 yang dikenal kalem, tapi penuh pesona. Yuk kumpulin poin sambil jawab pertanyaan seputar dia!</p>
+    </div>
+    <div class="artikel">
+      <h2>Tentang Developer</h2>
+      <p>One Zeed Adalah Perancang Ide Adel Coin Yang Memungkinkan Komunitas Mendapatkan Keuntungan Airdrop Setiap Bulan</p>
+    </div>
+    <div class="artikel">
+      <h2>Tentang Adel Coin</h2>
+      <p>Apa Itu Adel Coin? Adel Coin adalah fan token yang di rancang di atas rantai blokchain web3 yang aman dan transparan,memungkinkan transaksi yang aman </p>
+    </div>
+  </div>
+
+  <script>
+    document.getElementById("poin").textContent = localStorage.getItem("poin") || 0;
+  </script>
+
+  <!-- Navbar bawah -->
+  <nav class="bottom-navbar">
+    <div>Developer by Zami</div>
+    <div class="social-links">
+      <a href="https://chat.whatsapp.com/CY9Gt71wyXo6lH8aSCUgvY" target="_blank">
+        <img src="https://img.icons8.com/ios-filled/50/ffffff/whatsapp.png" alt="WhatsApp">
+      </a>
+      <a href="https://x.com/adelcoin" target="_blank">
+        <img src="https://img.icons8.com/ios-filled/50/ffffff/twitterx--v2.png" alt="X">
+      </a>
+    </div>
+  </nav>
+</body>
+</html>
