@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ADEL COIN</title>
+  <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet" />
+  <style>
+    body {
+      font-family: 'Poppins', sans-serif;
+      background-color: #111827;
+      color: white;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+    }
+
+    .container {
+      text-align: center;
+      animation: fadeIn 2s ease-in-out;
+      padding: 20px;
+    }
+
+    .idol-gif {
+      width: 150px;
+      height: auto;
+      margin-bottom: 20px;
+      border-radius: 9999px;
+      box-shadow: 0 0 20px rgba(255, 105, 180, 0.4);
+    }
+
+    .title {
+      font-size: 16px;
+      font-weight: 400;
+      margin-bottom: 30px;
+      line-height: 1.6;
+    }
+
+    .start-button {
+      display: inline-block;
+      background-color: #ec4899;
+      color: white;
+      padding: 12px 28px;
+      border-radius: 9999px;
+      text-decoration: none;
+      font-weight: 600;
+      transition: background 0.3s ease;
+    }
+
+    .start-button:hover {
+      background-color: #be185d;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+  </style>
+  <audio id="bgm" autoplay loop>
+    <source src="bgm.mp3" type="audio/mpeg" />
+  </audio>
+</head>
+<body>
+  <div class="container">
+    <img src="logo.png" class="idol-gif" alt="Adel" />
+    <h1 class="title">Bagai kucing yang kalem tetapi akan selalu memikat hati kamu.<br>Halo semuanya, aku Adel.</h1>
+    <a href="beranda.html" class="start-button">Mulai</a>
+  </div>
+</body>
+</html>
