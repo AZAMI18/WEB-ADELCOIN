@@ -1,0 +1,79 @@
+/* Reset dan basic */
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Arial', sans-serif;
+  background: linear-gradient(135deg, #1f2937 0%, #111827 100%);
+  margin: 0;
+  padding: 0;
+  text-align: center;
+  color: white;
+  animation: fadeIn 1.5s;
+}
+
+.container {
+  padding: 40px;
+}
+
+.title {
+  font-size: 24px;
+  margin-top: 20px;
+  line-height: 1.4;
+}
+
+.start-button {
+  padding: 10px 20px;
+  background-color: hotpink;
+  color: white;
+  text-decoration: none;
+  border-radius: 10px;
+  font-weight: bold;
+  transition: background-color 0.3s ease;
+}
+
+.start-button:hover {
+  background-color: #d5007d;
+}
+
+.idol-gif {
+  width: 200px;
+  border-radius: 20px;
+  animation: float 3s ease-in-out infinite;
+}
+
+.artikel {
+  margin-top: 40px;
+  text-align: left;
+  padding: 10px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 12px;
+  color: #eee;
+}
+
+/* Animations */
+@keyframes float {
+  0% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+  100% { transform: translateY(0); }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+.bottom-navbar {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background-color: #111827;
+  color: white;
+  text-align: center;
+  padding: 12px 0;
+  font-weight: 600;
+  box-shadow: 0 -2px 6px rgba(0, 0, 0, 0.5);
+  font-family: 'Arial', sans-serif;
+  z-index: 1000;
+}
