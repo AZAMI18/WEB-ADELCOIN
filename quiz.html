@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Kuis ADEL COIN</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet" />
+  <style>
+    /* Animasi fade-in */
+    .fade-in {
+      animation: fadeIn 1.5s ease-in-out forwards;
+      opacity: 0;
+    }
+    @keyframes fadeIn {
+      to {
+        opacity: 1;
+      }
+    }
+  </style>
+</head>
+<body class="bg-gray-900 text-white min-h-screen flex flex-col justify-center items-center p-6 fade-in">
+  <h1 class="text-2xl font-bold mb-6">Kuis ADEL COIN</h1>
+  <div class="bg-gray-800 p-6 rounded-lg shadow-lg w-full max-w-md">
+    <p id="question" class="mb-4"></p>
+    <form id="quizForm"></form>
+    <button id="submitBtn" class="mt-4 bg-pink-500 hover:bg-pink-600 px-4 py-2 rounded-full">Kirim Jawaban</button>
+    <p id="result" class="mt-4 text-lg font-semibold"></p>
+  </div>
+
+  <script>
+    const dailyQuizzes = [
+      { tgl: '2025-05-16', question: "Apa warna favorit Adel?", options: ["Merah", "Pink", "Biru"], answer: "Pink" },
+      { tgl: '2025-05-17', question: "Siapa nama lengkap Adel?", options: ["Reva Fidela Adel", "Adelina Fauzi", "Adel Pantjoro"], answer: "Reva Fidela Adel" },
+      { tgl: '2025-05-18', question: "Adel berasal dari grup apa?", options: ["JKT48", "BNK48", "AKB48"], answer: "JKT48" },
+      { tgl: '2025-05-19', question: "Kapan ulang tahun Adel?", options: ["14 juli 2006", "10 November", "15 Desember"], answer: "14 juli 2006" },
+      { tgl: '2025-05-20', question: "Apa hobinya Adel?", options: ["Bernyanyi", "Bermain game", "Memasak"], answer: "Bermain game" },
+      // Tambah pertanyaan sampai 30 hari
+    ];
+
+    const today = new Date().toISOString().slice(0, 10);
+    const quiz = dailyQuizzes.find(q => q.tgl === today);
+
+    const questionEl = document.getElementById("question");
+    const quizForm = document.getElementById("quizForm");
+    const submitBtn = document.getElementById("submitBtn");
+    const resultEl = document.getElementById("result");
+
+    const terakhirJawab = localStorage.getItem("terakhirJawab");
+
+    if (!quiz) {
+      questionEl.textContent = "Belum ada pertanyaan hari ini.";
+      submitBtn.style.display = "none";
+    } else if (terakhirJawab === today) {
+      questionEl.textContent = "Kamu sudah jawab hari ini. Balik lagi besok ya!";
+      submitBtn.style.display = "none";
+    } else {
+      questionEl.textContent = quiz.question;
+      quiz.options.forEach(opt => {
+        const label = document.createElement("label");
+        label.classList.add("block", "mb-2");
+        label.innerHTML = `<input type="radio" name="jawaban" value="${opt}" class="mr-2" /> ${opt}`;
+        quizForm.appendChild(label);
+      });
+
+      submitBtn.addEventListener("click", () => {
+        const selected = document.querySelector('input[name="jawaban"]:checked');
+        if (!selected) {
+          resultEl.textContent = "Pilih dulu jawaban bre!";
+          return;
+        }
+        const answer = selected.value;
+        if (answer === quiz.answer) {
+          resultEl.textContent = "Bener bre! Kamu dapet 100 poin!";
+          const oldPoints = parseInt(localStorage.getItem("adelPoints")) || 0;
+          localStorage.setItem("adelPoints", oldPoints + 100);
+        } else {
+          resultEl.textContent = "Yah salah. Coba lagi besok ya!";
+        }
+
+        localStorage.setItem("terakhirJawab", today);
+        submitBtn.disabled = true;
+
+        setTimeout(() => {
+          window.location.href = "index.html";
+        }, 2000);
+      });
+    }
+  </script>
+</body>
+</html>
